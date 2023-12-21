@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="fetch.js" defer></script>
+    <title>FavourSu</title>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+
+    <nav class="flex row">
+      <img src="./assets/logo.png" alt="logo" id="logo" />
+
+      <!-- Navigation Bar for Mobile Phones -->
+
+      <div id="formobile">
+        <ul id="navMenuForMobile" class="flex row mobile">
+          <li class="nav" onclick="removeNav()">Home</li>
+          <li class="nav discover">Discover</li>
+          <li class="nav goToMealDb">TheMealDb</li>
+          <li id="menuSearchButton" class="mainButtons searchInitiator">
+            Search
+          </li>
+        </ul>
+        <div id="closeDiv"></div>
+      </div>
+
+      <!-- Navigation bar for larger Devices -->
+
+      <ul id="navMenu" class="flex row">
+        <li class="nav" onclick="removeNav()">Home</li>
+        <li class="nav discover">Discover</li>
+        <li class="nav goToMealDb">TheMealDb</li>
+        <li id="menuSearchButton" class="mainButtons searchInitiator">
+          Search
+        </li>
+      </ul>
+
+      <!-- Menu Icon for Mobile devices -->
+
+      <div class="menu-icon" id="menuIcon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+
+    <!-- BackGround blur div -->
+
+    <div id="blur"></div>
+
+    <div id="loadingContainer" class="flex center">
+      <div class="loading"></div>
+    </div>
+
+    <!-- Popup / Modal Div -->
+
+    <div id="modal" class="flex column">
+      <!-- Cross Button -->
+
+      <span class="close-button" id="closeButton">&times;</span>
+
+      <!-- Div for Displaying image and ingredientList -->
+
+      <div id="recipeIntroDiv" class="recipeDiv flex center row">
+        <div>
+          <div id="modalImageDiv" class="flex center">
+            <img src="./assets/momo.png" alt="recipeImage" id="modalImage" />
+            <h1 id="recipeName" style="width: 70%; text-align: center"></h1>
+          </div>
+        </div>
+
+        <!-- Ingredient List -->
+
+        <ul id="ingredientList" class="">
+          <h2>Ingredients:</h2>
+        </ul>
+      </div>
+
+      <!-- Div for displaying Instructions -->
+
+      <div id="instructions" class="recipeDiv">
+        <div id="instructionsDiv">
+          <h2>Instructions:</h2>
+          <br />
+
+          <!-- Instruction list -->
+
+          <ol id="instructionList"></ol>
+        </div>
+      </div>
+
+      <p class="description">
+        <a href="" id="youtubeLink" target="_main">Checkout the Video</a>
+      </p>
+    </div>
+
+    <!-- Home Page Introduction Section -->
+
+    <section id="introductionSection" class="flex row">
+      <!-- Left Section of introductionSection -->
+
+      <div id="quotesDiv" class="flex column">
+        <!-- Search Bar -->
+
+        <div id="inputDiv" class="flex row">
+          <!-- Search input -->
+          <input
+            type="search"
+            id="searchBar"
+            placeholder="Craving Something?"
+          />
+
+          <!-- Search Icon  -->
+          <div id="searchIconDiv" class="flex searchInitiator">
+            <img
+              src="./assets/searchIcon.png"
+              alt="searchIcon"
+              id="searchIcon"
+              class="searchInitiator"
+            />
+          </div>
+        </div>
+
+        <!-- Div for Welcome Texts -->
+
+        <div id="welcomeDiv" class="flex column">
+          <h3 id="welcomeText" class="cursive">Welcome to FlavourSu :)</h3>
+          <h1>
+            Unleash Flavor, Ignite Passion! Every Recipe, a Culinary Symphony.
+          </h1>
+          <h2>Taste the Difference, Love the Recipe.</h2>
+        </div>
+
+        <!-- Button div  -->
+
+        <div class="flex row" id="buttonDiv">
+          <div id="discoverButton" class="mainButtons discover">Discover</div>
+          <div id="searchButton" class="mainButtons searchInitiator">
+            Search
+          </div>
+        </div>
+      </div>
+
+      <!-- Introduction food Image div  -->
+
+      <div id="introFoodDiv" class="flex column">
+        <div id="introFoodImage" class="flex column center">
+          <img src="./assets/leaf3.png" alt="leaf3" id="leaf3" class="leaf" />
+          <div id="introFoodQuote">
+            <h3>
+              Joy on the plate, happiness on the palate: a recipe for a
+              delightful life
+            </h3>
+            <img src="./assets/leaf2.png" alt="leaf2" id="leaf2" class="leaf" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr id="someThingNew" />
+
+    <!-- Section for displaying random recipe  -->
+
+    <section id="randomFoodSection">
+      <h1>Want to try Something New?</h1>
+
+      <!-- Description div for random recipe  -->
+
+      <div id="randomFood " class="flex row">
+        <!-- Image for random Recipe  -->
+
+        <div id="randomFoodImage" class="flex column center">
+          <div id="randomFoodName">
+            <h2><span class="randomFoodName">Bliss Bowl Salad</span></h2>
+          </div>
+        </div>
+
+        <!-- Description  -->
+
+        <div id="randomFoodDescriptionDiv" class="flex column center">
+          <div id="randomFoodDescriptionName">
+            <h3>Try out the:</h3>
+            <h2><span class="randomFoodName">Bliss Bowl Salad</span></h2>
+          </div>
+
+          <div id="randomFoodDescription">
+            <p class="description">
+              <a href="" id="youtubeLinkRandom">Checkout the Video</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr id="recipeSec" />
+
+    <!-- Section for Recipe lists -->
+
+    <div id="newRecipes">
+      <h1>Explore some new Recepies!!</h1>
+      <h2>Just <span class="searchInitiator cursive">search</span> for it!!</h2>
+    </div>
+
+    <!-- Search category display -->
+
+    <h2 id="searchCategoryName"></h2>
+
+    <!-- Div to display all the recipes  -->
+    <div id="recipesSection" class="flex column">
+      <!-- Row 1 -->
+      <div id="recipeRow1" class="flex"></div>
+
+      <!-- row 2 -->
+      <div id="recipeRow2" class="flex"></div>
+    </div>
+
+    <!-- div for redirectin to the search bar -->
+    <div id="newRecipesFooter">
+      <h2>
+        Just <span class="cursive searchInitiator">search</span> for what you
+        are craving!!
+      </h2>
+    </div>
+
+    <hr />
+
+    <!-- Footer Section  -->
+    <footer class="flex row footer">
+      <!-- Number of recipes section  -->
+      <div id="numberOfRecepies" class="footerContent">
+        <p>
+          We have a total of <br />
+          <span class="cursive">302</span> recipes <br />
+          using <span class="cursive">575</span>
+          ingredients!!!!!
+        </p>
+      </div>
+
+      <!-- Credits Section  -->
+      <div id="credits" class="footerContent">
+        <p>
+          Information sourced from <br />
+          <a href="https://www.themealdb.com/" target="_main"
+            >The Meal DB API.</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <div id="rotatePhone">
+      <img src="./assets/rotate.png" id="rotateImg" />
+    </div>
+  </body>
+</html>

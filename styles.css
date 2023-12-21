@@ -1,0 +1,870 @@
+/* Importing google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
+
+/* Universal Styling */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+  color: white;
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: linear-gradient(
+    160deg,
+    #26242a 7.43%,
+    #0a2722 31.03%,
+    #001708 65.64%,
+    #0b0a1c 98.7%
+  );
+  padding: 5vw;
+  padding-top: 1rem;
+}
+
+.cursive {
+  cursor: pointer;
+  color: #39dae2;
+  font-family: "Pattaya", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  animation: glow 2s infinite;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #35797d;
+  margin: 15vh 0;
+}
+
+/* Filter for leaves */
+.leaf {
+  filter: contrast(150%) brightness(70%) saturate(200%) hue-rotate(20deg)
+    drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.5));
+}
+
+/* anchorTag styling */
+a {
+  color: #39dae2;
+  font-family: "Pattaya", sans-serif;
+  text-decoration: none;
+  animation: glow 2s infinite;
+}
+
+/*Blur and loading Div stylings*/
+#loadingContainer {
+  z-index: 200;
+}
+
+#blur,
+#loadingContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(36, 37, 42, 0.35);
+  backdrop-filter: blur(2px);
+  z-index: 50;
+}
+
+.loading {
+  border: 2px solid #f3f3f3;
+  border-top: 5px solid #34dbbc;
+  background: linear-gradient(
+    160deg,
+    #033165 7.43%,
+    #006e1a 21.73%,
+    #003658 98.7%
+  );
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1.5s ease-in-out infinite;
+}
+
+/* Stylings for the modal ans its contents*/
+#modal {
+  display: none;
+  position: fixed;
+  top: 5vh;
+  width: 90vw;
+  right: 5vw;
+  height: 90vh;
+  border-radius: 10px;
+  background: rgba(57, 58, 63, 0.7);
+  box-shadow: 50px 50px 50px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  align-items: center;
+  justify-content: space-around;
+  padding: 3%;
+}
+
+.close-button {
+  position: absolute;
+  top: 2.5%;
+  right: 2.5%;
+  font-size: 30px;
+  font-weight: bold;
+  color: #10978f;
+  text-shadow: 0 0 2px rgba(57, 218, 226, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.close-button:hover {
+  text-shadow: 0 0 5px rgba(57, 218, 226, 0.7);
+  transform: scale(1.05);
+}
+
+.recipeDiv {
+  max-height: 45%;
+  width: 90%;
+}
+
+#recipeName {
+  font-size: 1.5rem;
+}
+
+#modal h2 {
+  color: #80fafc;
+}
+
+#modalImageDiv {
+  width: 40vh;
+  height: 40vh;
+  overflow: hidden;
+  border-radius: 30px;
+  box-shadow: 50px 50px 50px 10px rgba(0, 0, 0, 0.25);
+  margin-bottom: 5px;
+  position: relative;
+}
+
+#modalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#recipeIntroDiv {
+  gap: 5%;
+}
+
+#recipeName {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: rgba(65, 75, 98, 0.38);
+  backdrop-filter: blur(5px);
+  padding: 0.5rem;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 5%;
+  z-index: 10;
+  font-size: 2rem;
+}
+
+#ingredientList {
+  padding-right: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  text-align: center;
+  align-items: center;
+  list-style: none;
+  font-weight: 600;
+  width: 90%;
+  max-height: 100%;
+  overflow-y: scroll;
+  gap: 10px;
+}
+
+#instructionsDiv {
+  border-radius: 10px;
+  background: rgba(80, 117, 98, 0.054);
+  padding: 2rem;
+  max-width: 80%;
+  margin: auto;
+}
+
+#instructions {
+  overflow-y: scroll;
+}
+
+#ingredientList li {
+  border-radius: 30px;
+  background: rgba(80, 117, 98, 0.188);
+  padding: 5px;
+}
+
+#instructionList {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#instructionList li {
+  margin: 1vh 0;
+}
+
+#youtubeLink {
+  font-size: 1rem;
+  position: fixed;
+  /* left: 50%; */
+  transform: translate(-50%, -50%);
+  bottom: -5%;
+  background: linear-gradient(
+    160deg,
+    #26242a 7.43%,
+    #0a2722 31.03%,
+    #001708 65.64%,
+    #0b0a1c 98.7%
+  );
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+/*Navigation bar stylings*/
+nav {
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5vh;
+  align-items: center;
+}
+
+.nav {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav:hover {
+  color: #00f2ff;
+}
+
+#logo {
+  height: 120px;
+  margin-left: -1rem;
+}
+
+#menuIcon {
+  height: 30px;
+  display: none;
+}
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  box-shadow: 0 0 2px #39dae2b3;
+  border-radius: 30px;
+  width: 30px;
+  height: 3px;
+  background-color: #39dae2b3;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+#navMenu,
+#navMenuForMobile {
+  list-style: none;
+  width: 40%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 10;
+}
+
+/*Nav Bar styling for Mobile phones*/
+#formobile {
+  background: linear-gradient(
+    181deg,
+    #090f0a 1.35%,
+    #191d1e 56.23%,
+    rgba(38, 42, 47, 0) 98.81%
+  );
+  position: fixed;
+  height: 20vh;
+  top: 0;
+  left: 0;
+  padding: 7.5vw;
+  width: 100%;
+  display: none;
+  z-index: 100;
+}
+
+#navMenuForMobile.mobile {
+  width: 100%;
+  font-size: 0.7rem;
+}
+
+#closeDiv {
+  display: none;
+  position: fixed;
+  top: 15vh;
+  height: 85vh;
+  width: 100vw;
+  left: 0;
+}
+
+/*Main Buttons Styling*/
+.mainButtons {
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  background-image: linear-gradient(
+    45deg,
+    #23d489 6.74%,
+    #10978f 57.47%,
+    #003c38 100%
+  );
+  padding: 0.5rem 1rem;
+  transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+}
+
+.mainButtons:hover {
+  transform: scale(1.02);
+  border-radius: 15px;
+}
+
+/*Styling for Introduction Section */
+#introductionSection {
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: slideInAnimation 2s ease forwards;
+  height: 60vh;
+  justify-content: space-between;
+  margin-bottom: 20vh;
+}
+
+#quotesDiv {
+  justify-content: space-between;
+  width: 50%;
+  height: 100%;
+}
+
+#introFoodDiv {
+  align-items: flex-end;
+  position: relative;
+  width: 40%;
+  z-index: 1;
+}
+
+/*Stylings for Search Bar and welcome Section*/
+#searchBar {
+  border-radius: 30px 0 0 30px;
+  border: 1.5px solid #e4bdbd;
+  background: rgba(217, 217, 217, 0);
+  padding: 0.5rem;
+  width: 90%;
+  height: 2.5rem;
+}
+
+#inputDiv {
+  position: relative;
+  z-index: 5;
+}
+
+#searchIconDiv {
+  align-items: center;
+  border: 1.5px solid #e4bdbd;
+  height: 54px;
+  border-left: none;
+  border-radius: 0 30px 30px 0;
+  height: 2.5rem;
+}
+
+#searchIcon {
+  border-radius: 50%;
+  height: 100px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  margin-right: 0.5rem;
+}
+
+#searchIcon:hover {
+  transform: scale(1.25);
+}
+
+#welcomeDiv {
+  margin-top: 5vh;
+  margin-bottom: 7.5vh;
+  height: 40%;
+  justify-content: space-between;
+}
+
+#welcomeDiv * {
+  margin-top: 1rem;
+}
+
+#buttonDiv {
+  font-weight: 600;
+  width: 250px;
+  font-size: 1.25rem;
+  justify-content: space-between;
+}
+
+/*Styling for intro food Div*/
+#introFoodImage {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  height: 100%;
+  width: 100%;
+  background-image: url("./assets/foodIsLife.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+#introFoodQuote {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 80%;
+  border-radius: 30px;
+  text-align: center;
+  background-color: rgba(65, 75, 98, 0.38);
+  backdrop-filter: blur(5px);
+  padding: 2rem;
+  width: 80%;
+  position: relative;
+}
+
+#leaf2 {
+  position: absolute;
+  right: -15px;
+  bottom: -35%;
+  height: 100px;
+}
+
+#leaf3 {
+  height: 150px;
+  position: absolute;
+  left: -150px;
+  bottom: 0;
+  z-index: -100;
+}
+
+/*Styling for random Food Section*/
+#randomFoodSection {
+  text-align: center;
+}
+
+#randomFoodSection h1 {
+  margin-bottom: 7.5vh;
+}
+
+#randomFood {
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+#randomFoodImage {
+  background-image: url(./assets/blissBowl.jpeg);
+  height: 60vh;
+  width: 60vh;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+#randomFoodImage:hover {
+  transform: scale(1.03);
+}
+
+#randomFoodDescriptionDiv {
+  width: 40%;
+}
+
+#randomFoodName {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: rgba(65, 75, 98, 0.38);
+  backdrop-filter: blur(5px);
+  padding: 1.5rem;
+  border-radius: 30px;
+  width: 60%;
+}
+
+#randomFoodDescriptionName {
+  margin-bottom: 7.5vh;
+}
+
+.description {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#newRecipes {
+  text-align: center;
+  margin-bottom: 15vh;
+}
+
+/* Sttylings for recipes section*/
+#recipesSection {
+  justify-items: center;
+  display: grid;
+  padding: 1rem 0;
+  width: 80vw;
+  margin: auto;
+  overflow-x: scroll;
+  gap: 5vh;
+}
+
+#recipeRow1,
+#recipeRow2 {
+  gap: 5vh;
+}
+
+.recipes {
+  text-align: center;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 250px;
+  width: 250px;
+  border-radius: 30px;
+  background: linear-gradient(
+    154deg,
+    rgba(139, 137, 255, 0.04) 10.37%,
+    rgba(51, 255, 0, 0.02) 88.67%
+  );
+  backdrop-filter: blur(2px);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.recipes:hover {
+  transform: scale(1.03);
+}
+
+.recipeImage {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 80%;
+  width: 80%;
+  border-radius: 20px;
+}
+
+.recipeName {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#newRecipesFooter {
+  text-align: center;
+  margin-top: 15vh;
+}
+
+#searchCategoryName {
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+/*Styling for switch to portrait mode dic*/
+
+#rotatePhone {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    160deg,
+    #190d33 7.43%,
+    #0a1227 21.73%,
+    #0b0a1c 98.7%
+  );
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 250;
+}
+
+#rotateImg {
+  height: 60%;
+  animation: spin 15s linear infinite;
+}
+
+/*Footer Section Styling*/
+footer {
+  justify-content: space-around;
+}
+
+.footerContent {
+  width: 40vw;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Media Queries */
+
+/* 1150px WIDTH */
+@media (max-width: 1150px) {
+  #introductionSection {
+    height: 50vh;
+  }
+
+  hr {
+    margin: 7.5vh 0;
+  }
+
+  #logo {
+    height: 100px;
+  }
+
+  #leaf1 {
+    height: 80px;
+  }
+
+  #leaf3 {
+    height: 100px;
+    left: -100px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  #navMenu {
+    font-size: 0.8rem;
+  }
+
+  #buttonDiv {
+    font-size: 0.8rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
+
+/* 800px WIDTH */
+@media (max-width: 800px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 0.8rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+}
+
+/* 700px WIDTH */
+/*Its longer because below this width, we will display the webpage for mobile view*/
+
+@media (max-width: 700px) {
+  #recipesSection {
+    justify-items: start;
+  }
+  #newRecipes {
+    margin-bottom: 5vh;
+  }
+
+  hr {
+    margin: 7.5vh 0;
+  }
+  #introductionSection {
+    flex-direction: column;
+    margin-bottom: 5vh;
+  }
+
+  #quotesDiv {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  #navMenu {
+    width: 70%;
+  }
+
+  #introFoodDiv {
+    display: none;
+  }
+
+  #randomFood {
+    flex-direction: column;
+  }
+
+  #randomFoodImage {
+    width: 300px;
+    height: 300px;
+  }
+
+  #randomFoodDescriptionDiv {
+    width: 80vw;
+  }
+
+  #randomFoodDescriptionName {
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+  }
+
+  footer.footer {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .footerContent {
+    margin-top: 0rem;
+    width: 80vw;
+    margin-bottom: 2.5vh;
+  }
+
+  footer p {
+    font-size: 1rem;
+  }
+
+  #recipeIntroDiv {
+    flex-direction: column;
+    height: 60%;
+  }
+
+  #modalImageDiv {
+    height: 30vh;
+    width: 30vh;
+  }
+
+  #recipeName {
+    font-size: 1rem;
+  }
+
+  #ingredientList {
+    font-size: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .recipeDiv {
+    max-height: 100%;
+    height: 35%;
+  }
+
+  #modal {
+    font-size: 1rem;
+  }
+
+  #modal h2 {
+    font-size: 1rem;
+  }
+
+  #instructionsDiv {
+    padding: 0.5rem;
+    max-width: 100%;
+  }
+
+  #instructionList {
+    padding-left: 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* 425px WIDTH */
+/*Especially for Phones*/
+@media (max-width: 425px) {
+  #logo {
+    height: 10vh;
+  }
+  #menuIcon {
+    display: inline;
+  }
+
+  #navMenu {
+    display: none;
+  }
+}
+
+/* Animation KeyFrames */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideInAnimation {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(57, 218, 226, 0.7); /* Initial shadow */
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(57, 218, 226, 0.9); /* Midpoint shadow */
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(57, 218, 226, 0.7); /* Final shadow */
+  }
+}
+
+/* Scroll Bar Styling */
+::-webkit-scrollbar {
+  width: 100%;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #003c382f;
+  border-radius: 8px;
+  box-shadow: 0 0 3px rgba(57, 218, 226, 0.7); /* Initial shadow */
+}
+::-webkit-scrollbar-thumb {
+  background: #00f2ff;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 160, 253);
+}
+
+#ingredientList::-webkit-scrollbar,
+#instructions::-webkit-scrollbar {
+  width: 3px;
+}

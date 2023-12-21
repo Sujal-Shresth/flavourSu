@@ -43,5 +43,5 @@ GitHub Repo link: [FlavourSu Repo](https://github.com/Sujal-Shresth/flavourSu)
 
 ## ScreenShots
 
-<img src = "./assets/ss2.png" height="300px">
-<img src = "./assets/ss1.png" width="500px">
+<img src = "./assets/ss2.png" alt="SS1" height="300">
+<img src = "./assets/ss1.png" alt="SS2" width="500">

@@ -65,6 +65,8 @@ const modalRecipeName = document.getElementById("recipeName");
 const youTubeLink = document.getElementById("youtubeLink");
 
 function createPopup(meals) {
+  modalIngredientList.innerHTML = "<h2>Ingredients:</h2>";
+  modalInstructionList.innerHTML = "";
   let instruction = meals.strInstructions;
   let name = meals.strMeal;
   let image = meals.strMealThumb;

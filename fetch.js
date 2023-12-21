@@ -80,7 +80,12 @@ function createPopup(meals) {
   for (i = 1; i <= 20; i++) {
     const ingredientKey = "strIngredient" + i;
     const ingredientAmountKey = "strMeasure" + i;
-    if (meals[ingredientKey] !== "" && meals[ingredientAmountKey] !== "") {
+    if (
+      meals[ingredientKey] !== "" &&
+      meals[ingredientAmountKey] !== "" &&
+      meals[ingredientKey] !== null &&
+      meals[ingredientAmountKey] !== null
+    ) {
       let ingredient = document.createElement("li");
       ingredient.innerText = `${meals[ingredientKey]}
       - (${meals[ingredientAmountKey]})`;

@@ -369,7 +369,7 @@ nav {
 #quotesDiv {
   justify-content: space-between;
   width: 50%;
-  height: 100%;
+  height: fit-content;
 }
 
 #introFoodDiv {
@@ -817,6 +817,12 @@ footer {
 
   #navMenu {
     display: none;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  hr {
+    margin: 15vw 0 5vw 0;
   }
 }
 

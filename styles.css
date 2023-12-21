@@ -827,7 +827,7 @@ footer {
   }
 }
 
-@media (min-width: 800px) and (max-height: 560px) {
+@media (min-width: 650px) and (max-height: 560px) {
   #rotatePhone {
     display: flex;
   }

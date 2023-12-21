@@ -473,7 +473,9 @@ nav {
 
 /*Styling for random Food Section*/
 #randomFoodSection {
+  width: 100%;
   text-align: center;
+  align-items: center;
 }
 
 #randomFoodSection h1 {
@@ -481,7 +483,8 @@ nav {
 }
 
 #randomFood {
-  justify-content: center;
+  width: 80%;
+  justify-content: space-around;
   align-items: center;
   gap: 5%;
 }

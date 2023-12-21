@@ -362,6 +362,7 @@ nav {
   transform: translateX(-100%);
   animation: slideInAnimation 2s ease forwards;
   height: 60vh;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 20vh;
 }
@@ -616,8 +617,8 @@ nav {
 }
 
 #rotateImg {
-  height: 60%;
-  animation: spin 15s linear infinite;
+  height: 150px;
+  animation: spin 20s linear infinite;
 }
 
 /*Footer Section Styling*/
@@ -823,6 +824,12 @@ footer {
 @media screen and (orientation: landscape) {
   hr {
     margin: 15vw 0 5vw 0;
+  }
+}
+
+@media (min-width: 800px) and (max-height: 560px) {
+  #rotatePhone {
+    display: flex;
   }
 }
 
